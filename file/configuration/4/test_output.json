@@ -1,0 +1,133 @@
+{
+  "urls": [
+    "https://movie.douban.com/top250?start=0",
+    "https://movie.douban.com/top250?start=25",
+    "https://movie.douban.com/top250?start=50",
+    "https://movie.douban.com/top250?start=75",
+    "https://movie.douban.com/top250?start=100",
+    "https://movie.douban.com/top250?start=125",
+    "https://movie.douban.com/top250?start=150",
+    "https://movie.douban.com/top250?start=175",
+    "https://movie.douban.com/top250?start=200",
+    "https://movie.douban.com/top250?start=225"
+  ],
+  "request_method": "get",
+  "encoding": "utf-8",
+  "timeout": 10,
+  "verify": true,
+  "headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0"
+  },
+  "data_form": {},
+  "data_form_script": {},
+  "cookies": {},
+  "user_agent_pool": [],
+  "ip_proxy_pool": [],
+  "parser_enable": true,
+  "data_type": "text",
+  "pretreatment_enable": true,
+  "pretreatment_setting": {
+    "tag_name": "div",
+    "attrs": {
+      "class": "item"
+    }
+  },
+  "parser_text_setting": {
+    "1@bs4": {
+      "selector": "span.title@text",
+      "index": [
+        1
+      ],
+      "sep": " "
+    },
+    "2@re": {
+      "selector": "<span class=\\\"title\\\">.*?/(.*?)</span>",
+      "index": [],
+      "sep": " "
+    },
+    "3@re": {
+      "selector": "<span class=\\\"other\\\">.*?/(.*?)</span>",
+      "index": [],
+      "sep": " "
+    },
+    "4@bs4": {
+      "selector": "span.rating_num@text",
+      "index": [
+        1
+      ],
+      "sep": " "
+    },
+    "5@re": {
+      "selector": "<span>(.*?\u4eba\u8bc4\u4ef7)</span>",
+      "index": [],
+      "sep": " "
+    },
+    "6@xpath": {
+      "selector": "//span[@class='inq']/text()",
+      "index": [],
+      "sep": " "
+    },
+    "7@xpath": {
+      "selector": "//p[@class='']/text()",
+      "index": [
+        1
+      ],
+      "sep": " "
+    },
+    "8@xpath": {
+      "selector": "//a[@class='']/@href",
+      "index": [
+        1
+      ],
+      "sep": " "
+    }
+  },
+  "file_save_enable": true,
+  "file_save_setting": {
+    "save_path": "default",
+    "text": {
+      "file_type": "excel",
+      "file_name": "test_output.xlsx",
+      "page_cut_enable": true,
+      "limit_per_page": 100
+    },
+    "bin": {
+      "file_type": "png",
+      "file_name": "default"
+    }
+  }
+}
+/*
+Help Document:
+1. 请保证每个设置键的正确, 否则程序将无法识别和读取
+2. Cookie 的自动更新*可能*会影响到爬虫以外的正常登陆
+3. 请严格按照 Robot 协议使用爬虫, 非法使用后果自负
+
+Key Dictionary:
+urls:                  需要爬取的url,可填写多条
+request_method:        请求方式
+verify:                证书验证启用
+encoding:              编码方式
+data_form:             post表单
+data_form_script:      若使用自定义脚本构建 post 表单, 则设置脚本文件名以及参数列表
+  ∟ "fName":"args":    自定义脚本文件名以及向脚本传递的参数列表
+timeout:               超时时间,单位:秒
+headers:               网络请求头设置
+cookie_update_enable:  启用cookie自动更新
+cookies:               用户身份指纹设置
+user_agent_pool:       请求机器标识池,设置多条避免单机请求过量,若使用单一标识可直接在headers中设置
+ip_proxy_pool:         网络代理池,使用分布式ip代理,避免单一ip请求过量被封禁
+parser_enable:         启用数据解析
+data_type:             数据类型
+pretreatment_enable:   数据切分启用
+pretreatment_setting:  数据切分设置
+  ∟ tag_name:          查找标签名
+  ∟ attrs:             标签属性名和值
+parser_text_setting:   文本解析设置
+  ∟ text:              普通文本解析设置
+  ∟ bin:               二进制内容解析设置
+file_save_enable:      启用文件保存
+file_save_setting:     数据存储设置
+  ∟ text:              文本内容存储设置
+  ∟ bin:               二进制内容存储设置
+*/

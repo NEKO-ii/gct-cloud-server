@@ -1,0 +1,108 @@
+{
+  "urls": [
+    "https://dict.youdao.com/webtranslate"
+  ],
+  "request_method": "post",
+  "encoding": "utf-8",
+  "timeout": 10,
+  "verify": false,
+  "headers": {
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "zh-CN,zh;q=0.9",
+    "Connection": "keep-alive",
+    "Content-Length": "252",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Cookie": "OUTFOX_SEARCH_USER_ID=-1829679392@10.110.96.159; OUTFOX_SEARCH_USER_ID_NCOO=368577791.2384356",
+    "Host": "dict.youdao.com",
+    "Origin": "https://fanyi.youdao.com",
+    "Referer": "https://fanyi.youdao.com/",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-site",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+    "sec-ch-ua": "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\""
+  },
+  "data_form": {
+    "i": "%E5%AD%97%E5%85%B8",
+    "from": "auto",
+    "to": "",
+    "dictResult": "true",
+    "keyid": "webfanyi",
+    "client": "fanyideskweb",
+    "product": "webfanyi",
+    "appVersion": "1.0.0",
+    "vendor": "web",
+    "pointParam": "client%2CmysticTime%2Cproduct",
+    "keyfrom": "fanyi.web"
+  },
+  "data_form_script": {
+    "js@0": {
+      "path": "D:\\Workspace\\GitRepository\\General_Crawler_Tool\\file\\script\\new_youdaofy_script.js",
+      "args": [
+        "\u5b57\u5178"
+      ]
+    }
+  },
+  "cookies": {},
+  "user_agent_pool": [],
+  "ip_proxy_pool": [],
+  "parser_enable": false,
+  "data_type": "text",
+  "pretreatment_enable": false,
+  "pretreatment_setting": {
+    "tag_name": "",
+    "attrs": {}
+  },
+  "parser_text_setting": {},
+  "file_save_enable": true,
+  "file_save_setting": {
+    "save_path": "default",
+    "text": {
+      "file_type": "txt",
+      "file_name": "newydtesto.txt",
+      "page_cut_enable": false,
+      "limit_per_page": 10
+    },
+    "bin": {
+      "file_type": "png",
+      "file_name": "default"
+    }
+  }
+}
+/*
+Help Document:
+1. 请保证每个设置键的正确, 否则程序将无法识别和读取
+2. Cookie 的自动更新*可能*会影响到爬虫以外的正常登陆
+3. 请严格按照 Robot 协议使用爬虫, 非法使用后果自负
+
+Key Dictionary:
+urls:                  需要爬取的url,可填写多条
+request_method:        请求方式
+verify:                证书验证启用
+encoding:              编码方式
+data_form:             post表单
+data_form_script:      若使用自定义脚本构建 post 表单, 则设置脚本文件名以及参数列表
+  ∟ "fName":"args":    自定义脚本文件名以及向脚本传递的参数列表
+timeout:               超时时间,单位:秒
+headers:               网络请求头设置
+cookie_update_enable:  启用cookie自动更新
+cookies:               用户身份指纹设置
+user_agent_pool:       请求机器标识池,设置多条避免单机请求过量,若使用单一标识可直接在headers中设置
+ip_proxy_pool:         网络代理池,使用分布式ip代理,避免单一ip请求过量被封禁
+parser_enable:         启用数据解析
+data_type:             数据类型
+pretreatment_enable:   数据切分启用
+pretreatment_setting:  数据切分设置
+  ∟ tag_name:          查找标签名
+  ∟ attrs:             标签属性名和值
+parser_text_setting:   文本解析设置
+  ∟ text:              普通文本解析设置
+  ∟ bin:               二进制内容解析设置
+file_save_enable:      启用文件保存
+file_save_setting:     数据存储设置
+  ∟ text:              文本内容存储设置
+  ∟ bin:               二进制内容存储设置
+*/
